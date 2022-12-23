@@ -14,7 +14,7 @@ const Showfiles = ({ userFiles, deleteFile }: Props) => {
   return (
     <div className="flex flex-col gap-5 px-5 py-2">
       <div className="flex text-xl font-semibold text-gray-500">Files</div>
-      <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 flex-wrap">
+      <div className="grid xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5 w-full">
         {userFiles.map((userFile, idx) => (
           <div
             className="min-h-[150px] border border-dashed border-gray-500 bg-gray-700 px-4 py-2 flex flex-col rounded-xl items-start"
