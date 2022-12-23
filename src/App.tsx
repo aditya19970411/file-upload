@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Login from "./Components/Login";
+import AuthContext, { defaultAuthContextState } from "./Context/AuthContext";
+import Files from "./Components/Files";
+// import Logout from "./Components/Logout";
 
 function App() {
+  const [AuthContextState, setAuthContextState] = useState({
+    ...defaultAuthContextState,
+    setAuth: (user: {}): void => {
+      setAuthContextState((prevAuthContextState) => {
+        return { ...prevAuthContextState, user };
+      });
+    },
+    getUser: () => AuthContextState.user,
+    deleteAuth: () => {
+      setAuthContextState({
+        ...AuthContextState,
+        user: {},
+      });
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthContext.Provider value={AuthContextState}>
+      <div className="min-h-[100vh] flex flex-col gap-5 p-5 bg-gray-800">
+        {Object.keys(AuthContextState.user)?.length > 0 ? <Files /> : <Login />}
+        {/* <Logout /> */}
+      </div>
+    </AuthContext.Provider>
   );
 }
 

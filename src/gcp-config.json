@@ -1,0 +1,12 @@
+{
+  "web": {
+    "client_id": "799210746948-uaiir1a8tklm74vrm27n15uu7npnfto8.apps.googleusercontent.com",
+    "project_id": "assignment-368406",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": ["http://localhost:3000", "http://localhost"],
+    "javascript_origins": ["http://localhost:3000", "http://localhost"]
+  }
+}
